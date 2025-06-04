@@ -96,17 +96,31 @@ int main()
 
 		switch (command)
 		{
-		case '+':
+		case '+':			
 			RAM[position]++;
 			break;
-		case '-':
+		case '-':			
 			RAM[position]--;
 			break;
 		case '<':
-			position--;
+			if (position - 1 < 0)
+			{
+				position = RAM_LIMIT - 1;
+			}
+			else
+			{
+				position--;
+			}			
 			break;
-		case '>':
-			position++;
+		case '>':			
+			if (position + 1 >= RAM_LIMIT)
+			{
+				position = 0;
+			}
+			else
+			{
+				position++;
+			}			
 			break;
 		case '.':
 			std::cout << RAM[position];
