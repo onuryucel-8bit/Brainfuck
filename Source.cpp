@@ -103,23 +103,23 @@ int main()
 			RAM[position]--;
 			break;
 		case '<':
-			if (position - 1 < 0)
+			if (position > 0)
 			{
-				position = RAM_LIMIT - 1;
+				position--;				
 			}
 			else
 			{
-				position--;
+				position = RAM_LIMIT - 1;
 			}			
 			break;
 		case '>':			
-			if (position + 1 >= RAM_LIMIT)
+			if (position + 1 < RAM_LIMIT)
 			{
-				position = 0;
+				position++;				
 			}
 			else
 			{
-				position++;
+				position = 0;
 			}			
 			break;
 		case '.':
